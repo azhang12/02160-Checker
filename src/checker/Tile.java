@@ -10,7 +10,7 @@ public class Tile {
 	}
 	
 	public Tile() {
-		
+		this.piece = null;
 	}
 	
 	//check if a piece is placed on the tile; return true if yes, return false if NULL
@@ -21,8 +21,8 @@ public class Tile {
 	}
 	
 	//method updates the tile -> updates automatically the board
-	public void update() {
-		
+	public void clearPiece() {
+		this.piece = null;
 	}
 	
 	public Piece getPiece (){return this.piece;}

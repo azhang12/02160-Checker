@@ -15,12 +15,12 @@ public class Printer {
 		for (int r=0;r<8;++r)
 		{
 			System.out.print(r+ "| " );
-			for (int c=0; c<8;++c)
+			for (int c=0; c<8; ++c)
 			{
 				//Tile has a Piece
-				if (board.getTile(c, r).hasPiece())
+				if (board.getTile(r, c).hasPiece())
 				{
-					System.out.print(board.getTile(c, r).getPiece().getPlayer().getId() + " ");
+					System.out.print(board.getTile(r, c).getPiece().getPlayer().getId() + " ");
 				}
 				 //There is no Piece on the field ->No Empty
 				else System.out.print(" "+" ");
