@@ -2,33 +2,57 @@ package checker;
 public class Validator {
 
 	//This method checks if the selected Piece belongs to the Player who hasTurn
-	public static boolean checkPlayer (int oldX, int oldY, Player hasTurn) {
+	public static boolean checkPlayer (Board board, int oldX, int oldY, Player hasTurn) {
+		
+			if(board.getTile(oldX, oldY).getPiece().getPlayer() != hasTurn ) return false;
+			else return true;
 		
 		
-		//IMPLEMENT METHOD
-		return true;
 	}
 	
 	//checks if the tile the player wants to move the piece to is diagonal
-	public static boolean checkIfDiagonal(int oldX, int oldY, int newX, int newY) {
+	public static boolean checkIfDiagonal(int oldX, int oldY, int newX, int newY, Player hasTurn) {
 		
-		//IMPLEMENT METHOD
-		return true;
+		//Check if inRange
+				if (newX <0||newX>7) return false;
+				else if (newY <0||newY>7) return false;
+				
+				
+				
+				else
+				{
+					//Check if Move goes diagonal
+					//Player 1 can only move down ->Raising X
+					if (hasTurn.getId()==1)
+					{
+						if (newY == oldY+1 &&(newX==oldX+1||newX==oldX-1)) return true;
+						else return false;
+							
+					}
+					
+					if (hasTurn.getId() ==2)
+					{
+						if (newY == oldY-1 &&(newX==oldX+1||newX==oldX-1)) return true;
+						else return false;
+					}
+					
+					else return false;
+				}
 	}
 	
 	
 	//method checks if the tile the player wants to move the piece to is empty
-	public static boolean checkIfEmpty(int newX, int newY) {
+	public static boolean checkIfEmpty(Board board, int newX, int newY) {
 		
-		//IMPLEMENT METHOD
-		return false;
+		if(board.getTile(newX, newY).hasPiece()) return true;
+		else return false;
 	}
 	
 	
 	//Combines all three methods
-	public static boolean checkMove (int oldX, int oldY, int newX, int newY, Player playerHasTurn)
+	public static boolean checkMove (int oldX, int oldY, int newX, int newY, Player playerHasTurn, Board board)
 	{
-		if(checkIfDiagonal(oldX, oldY, newX, newY)&&checkIfEmpty(newX,newY)&&checkPlayer(oldX,oldY,playerHasTurn))
+		if(checkIfDiagonal(oldX, oldY, newX, newY, playerHasTurn)&&checkIfEmpty(board,newX,newY)&&checkPlayer(board,oldX,oldY,playerHasTurn))
 		{
 			return true;
 		}
