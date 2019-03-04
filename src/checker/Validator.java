@@ -25,14 +25,14 @@ public class Validator {
 					//Player 1 can only move down ->Raising X
 					if (hasTurn.getId()==1)
 					{
-						if (newY == oldY+1 &&(newX==oldX+1||newX==oldX-1)) return true;
+						if (newX == oldX+1 &&(newY==oldY+1||newY==oldY-1)) return true;
 						else return false;
 							
 					}
 					
 					if (hasTurn.getId() ==2)
 					{
-						if (newY == oldY-1 &&(newX==oldX+1||newX==oldX-1)) return true;
+						if (newX == oldX-1 &&(newY==oldY+1||newY==oldY-1)) return true;
 						else return false;
 					}
 					
@@ -44,8 +44,8 @@ public class Validator {
 	//method checks if the tile the player wants to move the piece to is empty
 	public static boolean checkIfEmpty(Board board, int newX, int newY) {
 		
-		if(board.getTile(newX, newY).hasPiece()) return true;
-		else return false;
+		if(board.getTile(newX, newY).hasPiece()) return false;
+		else return true;
 	}
 	
 	

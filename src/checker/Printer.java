@@ -6,7 +6,7 @@ public class Printer {
 	public static void print(Board board)
 	{
 		//IMPLEMENT PRINT-METHOD
-		System.out.println("X->0 1 2 3 4 5 6 7");
+		System.out.println("Y->0 1 2 3 4 5 6 7");
 		System.out.println("---------------------");
 		
 		//Print each tile
@@ -30,6 +30,6 @@ public class Printer {
 			System.out.print("|" + r + "\n");
 		}
 		System.out.println("---------------------");
-		System.out.println("   0 1 2 3 4 5 6 7<-X");
+		System.out.println("   0 1 2 3 4 5 6 7<-Y");
 	}
 }
