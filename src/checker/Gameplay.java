@@ -8,9 +8,9 @@ public class Gameplay {
 	
 	private static Player hasTurn;
 	
-	public static void runGame() {
+	private static void runGame() {
 		//I've created an array with the players because I don't know how to change the hasTurn, maybe you know
-		Player[] participants = new Player[2];
+		//Player[] participants = new Player[2];
 		
 		Player p1 = new Player("Adam", 1);
 		Player p2 = new Player ("Kilian", 2);
@@ -33,7 +33,7 @@ public class Gameplay {
 		}
 	}
 	
-	public static boolean completeTurn (Board board) {
+	private static boolean completeTurn (Board board) {
 		int[] curCord = promptPlayer("choosePiece");
 		Tile oldTile = board.getTile(curCord[0], curCord[1]);
 		
@@ -52,7 +52,7 @@ public class Gameplay {
 	}
 	
 	//
-	public static int[] promptPlayer(String option) {
+	private static int[] promptPlayer(String option) {
 		Scanner sc = new Scanner(System.in);
 		switch(option) {
 			case "choosePiece":

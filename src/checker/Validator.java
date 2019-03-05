@@ -2,7 +2,7 @@ package checker;
 public class Validator {
 
 	//This method checks if the selected Piece belongs to the Player who hasTurn
-	public static boolean checkPlayer (Board board, int oldX, int oldY, Player hasTurn) {
+	private static boolean checkPlayer (Board board, int oldX, int oldY, Player hasTurn) {
 		
 			if(board.getTile(oldX, oldY).getPiece().getPlayer() != hasTurn ) return false;
 			else return true;
@@ -11,7 +11,7 @@ public class Validator {
 	}
 	
 	//checks if the tile the player wants to move the piece to is diagonal
-	public static boolean checkIfDiagonal(int oldX, int oldY, int newX, int newY, Player hasTurn) {
+	private static boolean checkIfDiagonal(int oldX, int oldY, int newX, int newY, Player hasTurn) {
 		
 		//Check if inRange
 				if (newX <0||newX>7) return false;
@@ -42,7 +42,7 @@ public class Validator {
 	
 	
 	//method checks if the tile the player wants to move the piece to is empty
-	public static boolean checkIfEmpty(Board board, int newX, int newY) {
+	private static boolean checkIfEmpty(Board board, int newX, int newY) {
 		
 		if(board.getTile(newX, newY).hasPiece()) return false;
 		else return true;
